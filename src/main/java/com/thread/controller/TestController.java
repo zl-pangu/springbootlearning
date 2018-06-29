@@ -2,12 +2,14 @@ package com.thread.controller;
 
 import com.thread.dto.CustTableMatchDto;
 import com.thread.service.CustTableMatchService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("zl")
+@Slf4j
 public class TestController {
 
     @Autowired
@@ -15,7 +17,7 @@ public class TestController {
 
     @RequestMapping("/test")
     public String test(){
-        System.out.println(1);
+       log.info("进入一个测试页面。。。。");
         return "test";
     }
 
