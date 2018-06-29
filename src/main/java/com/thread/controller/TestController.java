@@ -6,21 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * @author Wangxiaoshuai
- * @Date 2018/6/26 13:42
- */
 @Controller
-@RequestMapping("/test")
+@RequestMapping("zl")
 public class TestController {
-
 
     @Autowired
     private CustTableMatchService custTableMatchService;
 
+    @RequestMapping("/test")
+    public String test(){
+        System.out.println(1);
+        return "test";
+    }
 
     @RequestMapping("test1")
-    void test1() throws Exception{
+    public void test1() throws Exception{
         CustTableMatchDto dto=new CustTableMatchDto();
         dto.setFlag("123456");
         dto.setUserNo("01376493");

@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableCaching
 @EnableTransactionManagement
 @SpringBootApplication
-@ComponentScan("com.sf")
+@ComponentScan("com.thread")
 public class SfBootApplication implements CommandLineRunner {
 
 	@Override
