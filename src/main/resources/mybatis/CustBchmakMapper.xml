@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sf.dao.CustBchmakDao">
+
+	<resultMap id="CustBchmakRusltMap" type="com.sf.domain.CustBchmakDO">
+		<id column="ID" property="id" jdbcType="BIGINT"/>
+		<result column="FLAG" property="flag" jdbcType="VARCHAR"/>
+		<result column="TEMPLATE_TABLE" property="templateTable" jdbcType="VARCHAR"/>
+		<result column="BENCHMARK_CLO" property="benchmarkClo" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<select id="get" resultMap="CustBchmakRusltMap">
+		select `ID`,`FLAG`,`TEMPLATE_TABLE`,`BENCHMARK_CLO` from tb_cust_bchmak where ID = #{value}
+	</select>
+
+	<!--通过标示查询对象-->
+	<select id="queryByFlag" resultMap="CustBchmakRusltMap" parameterType="java.lang.String">
+		select `ID`,`FLAG`,`TEMPLATE_TABLE`,`BENCHMARK_CLO` from tb_cust_bchmak where FLAG = #{flag}
+	</select>
+
+	<select id="list" resultType="com.sf.domain.CustBchmakDO">
+		select `ID`,`FLAG`,`TEMPLATE_TABLE`,`BENCHMARK_CLO` from tb_cust_bchmak
+        <where>  
+		  		  <if test="id != null and id != ''"> and ID = #{id} </if>
+		  		  <if test="flag != null and flag != ''"> and FLAG = #{flag} </if>
+		  		  <if test="templateTable != null and templateTable != ''"> and TEMPLATE_TABLE = #{templateTable} </if>
+		  		  <if test="benchmarkClo != null and benchmarkClo != ''"> and BENCHMARK_CLO = #{benchmarkClo} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from tb_cust_bchmak
+		 <where>  
+		  		  <if test="id != null and id != ''"> and ID = #{id} </if>
+		  		  <if test="flag != null and flag != ''"> and FLAG = #{flag} </if>
+		  		  <if test="templateTable != null and templateTable != ''"> and TEMPLATE_TABLE = #{templateTable} </if>
+		  		  <if test="benchmarkClo != null and benchmarkClo != ''"> and BENCHMARK_CLO = #{benchmarkClo} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.sf.domain.CustBchmakDO">
+		insert into tb_cust_bchmak
+		(
+			`ID`, 
+			`FLAG`, 
+			`TEMPLATE_TABLE`, 
+			`BENCHMARK_CLO`
+		)
+		values
+		(
+			#{id}, 
+			#{flag}, 
+			#{templateTable}, 
+			#{benchmarkClo}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.sf.domain.CustBchmakDO">
+		update tb_cust_bchmak 
+		<set>
+			<if test="flag != null">`FLAG` = #{flag}, </if>
+			<if test="templateTable != null">`TEMPLATE_TABLE` = #{templateTable}, </if>
+			<if test="benchmarkClo != null">`BENCHMARK_CLO` = #{benchmarkClo}</if>
+		</set>
+		where ID = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from tb_cust_bchmak where ID = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from tb_cust_bchmak where ID in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sf.dao.CustRuleDao">
+
+	<resultMap id="BaseResultMap" type="com.sf.domain.CustRuleDO" >
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="TARGET_COLUMN" property="targetColumn" jdbcType="VARCHAR" />
+		<result column="TABLE_A" property="tableA" jdbcType="VARCHAR" />
+		<result column="COLUMN_A" property="columnA" jdbcType="VARCHAR" />
+		<result column="CALCULATION" property="calculation" jdbcType="VARCHAR" />
+		<result column="TABLE_B" property="tableB" jdbcType="VARCHAR" />
+		<result column="COLUMN_B" property="columnB" jdbcType="VARCHAR" />
+		<result column="CALCULATIONS" property="calculations" jdbcType="VARCHAR" />
+		<result column="TABLE_C" property="tableC" jdbcType="VARCHAR" />
+		<result column="COLUMN_C" property="columnC" jdbcType="VARCHAR" />
+		<result column="DEFAULT_VALUE" property="defaultValue" jdbcType="VARCHAR" />
+		<result column="flag" property="flag" jdbcType="VARCHAR" />
+		<result column="BENCHMARK_A" property="benchmarkA" jdbcType="VARCHAR" />
+		<result column="BENCHMARK_B" property="benchmarkB" jdbcType="VARCHAR" />
+		<result column="BENCHMARK_C" property="benchmarkC" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="get" resultMap="BaseResultMap">
+		select `ID`,`TARGET_COLUMN`,`TABLE_A`,`COLUMN_A`,`CALCULATION`,`TABLE_B`,`COLUMN_B`,`CALCULATIONS`,`TABLE_C`,`COLUMN_C`,`flag`,`BENCHMARK_A`,`BENCHMARK_B`,`BENCHMARK_C` from tb_cust_rule where ID = #{value}
+	</select>
+
+	<select id="list" resultMap="BaseResultMap">
+		select `ID`,`TARGET_COLUMN`,`TABLE_A`,`COLUMN_A`,`CALCULATION`,`TABLE_B`,`COLUMN_B`,`CALCULATIONS`,`TABLE_C`,`COLUMN_C`,`flag`,`BENCHMARK_A`,`BENCHMARK_B`,`BENCHMARK_C`,`DEFAULT_VALUE` from tb_cust_rule
+        <where>  
+		  		  <if test="id != null and id != ''"> and ID = #{id} </if>
+		  		  <if test="targetColumn != null and targetColumn != ''"> and TARGET_COLUMN = #{targetColumn} </if>
+		  		  <if test="tableA != null and tableA != ''"> and TABLE_A = #{tableA} </if>
+		  		  <if test="columnA != null and columnA != ''"> and COLUMN_A = #{columnA} </if>
+		  		  <if test="calculation != null and calculation != ''"> and CALCULATION = #{calculation} </if>
+		  		  <if test="tableB != null and tableB != ''"> and TABLE_B = #{tableB} </if>
+		  		  <if test="columnB != null and columnB != ''"> and COLUMN_B = #{columnB} </if>
+		  		  <if test="calculations != null and calculations != ''"> and CALCULATIONS = #{calculations} </if>
+		  		  <if test="tableC != null and tableC != ''"> and TABLE_C = #{tableC} </if>
+		  		  <if test="columnC != null and columnC != ''"> and COLUMN_C = #{columnC} </if>
+		  		  <if test="flag != null and flag != ''"> and flag = #{flag} </if>
+		  		  <if test="benchmarkA != null and benchmarkA != ''"> and BENCHMARK_A = #{benchmarkA} </if>
+		  		  <if test="benchmarkB != null and benchmarkB != ''"> and BENCHMARK_B = #{benchmarkB} </if>
+		  		  <if test="benchmarkC != null and benchmarkC != ''"> and BENCHMARK_C = #{benchmarkC} </if>
+			      <if test="defaultValue != null and defaultValue != ''"> and DEFAULT_VALUE = #{defaultValue} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from tb_cust_rule
+		 <where>  
+		  		  <if test="id != null and id != ''"> and ID = #{id} </if>
+		  		  <if test="targetColumn != null and targetColumn != ''"> and TARGET_COLUMN = #{targetColumn} </if>
+		  		  <if test="tableA != null and tableA != ''"> and TABLE_A = #{tableA} </if>
+		  		  <if test="columnA != null and columnA != ''"> and COLUMN_A = #{columnA} </if>
+		  		  <if test="calculation != null and calculation != ''"> and CALCULATION = #{calculation} </if>
+		  		  <if test="tableB != null and tableB != ''"> and TABLE_B = #{tableB} </if>
+		  		  <if test="columnB != null and columnB != ''"> and COLUMN_B = #{columnB} </if>
+		  		  <if test="calculations != null and calculations != ''"> and CALCULATIONS = #{calculations} </if>
+		  		  <if test="tableC != null and tableC != ''"> and TABLE_C = #{tableC} </if>
+		  		  <if test="columnC != null and columnC != ''"> and COLUMN_C = #{columnC} </if>
+		  		  <if test="flag != null and flag != ''"> and flag = #{flag} </if>
+		  		  <if test="benchmarkA != null and benchmarkA != ''"> and BENCHMARK_A = #{benchmarkA} </if>
+		  		  <if test="benchmarkB != null and benchmarkB != ''"> and BENCHMARK_B = #{benchmarkB} </if>
+		  		  <if test="benchmarkC != null and benchmarkC != ''"> and BENCHMARK_C = #{benchmarkC} </if>
+			      <if test="defaultValue != null and defaultValue != ''"> and DEFAULT_VALUE = #{defaultValue} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.sf.domain.CustRuleDO" useGeneratedKeys="true" keyProperty="id">
+		insert into tb_cust_rule
+		(
+			`TARGET_COLUMN`, 
+			`TABLE_A`, 
+			`COLUMN_A`, 
+			`CALCULATION`, 
+			`TABLE_B`, 
+			`COLUMN_B`, 
+			`CALCULATIONS`, 
+			`TABLE_C`, 
+			`COLUMN_C`, 
+			`flag`, 
+			`BENCHMARK_A`, 
+			`BENCHMARK_B`, 
+			`BENCHMARK_C`,
+			`DEFAULT_VALUE`
+		)
+		values
+		(
+			#{targetColumn}, 
+			#{tableA}, 
+			#{columnA}, 
+			#{calculation}, 
+			#{tableB}, 
+			#{columnB}, 
+			#{calculations}, 
+			#{tableC}, 
+			#{columnC}, 
+			#{flag}, 
+			#{benchmarkA}, 
+			#{benchmarkB}, 
+			#{benchmarkC},
+			#{defaultValue}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.sf.domain.CustRuleDO">
+		update tb_cust_rule 
+		<set><if test="defaultValue != null and defaultValue != ''"> and DEFAULT_VALUE = #{defaultValue} </if>
+			<if test="targetColumn != null">`TARGET_COLUMN` = #{targetColumn}, </if>
+			<if test="tableA != null">`TABLE_A` = #{tableA}, </if>
+			<if test="columnA != null">`COLUMN_A` = #{columnA}, </if>
+			<if test="calculation != null">`CALCULATION` = #{calculation}, </if>
+			<if test="tableB != null">`TABLE_B` = #{tableB}, </if>
+			<if test="columnB != null">`COLUMN_B` = #{columnB}, </if>
+			<if test="calculations != null">`CALCULATIONS` = #{calculations}, </if>
+			<if test="tableC != null">`TABLE_C` = #{tableC}, </if>
+			<if test="columnC != null">`COLUMN_C` = #{columnC}, </if>
+			<if test="flag != null">`flag` = #{flag}, </if>
+			<if test="benchmarkA != null">`BENCHMARK_A` = #{benchmarkA}, </if>
+			<if test="benchmarkB != null">`BENCHMARK_B` = #{benchmarkB}, </if>
+			<if test="benchmarkC != null">`BENCHMARK_C` = #{benchmarkC},</if>
+			<if test="defaultValue != null"> and DEFAULT_VALUE = #{defaultValue} </if>
+		</set>
+		where ID = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from tb_cust_rule where ID = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from tb_cust_rule where ID in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

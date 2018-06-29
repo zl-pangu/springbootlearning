@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sf.dao.CustGenerateFileDao">
+
+	<resultMap id="BaseResultMap" type="com.sf.domain.CustGenerateFileDO" >
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="FILE_NAME" property="fileName" jdbcType="VARCHAR" />
+		<result column="A" property="a" jdbcType="VARCHAR" />
+		<result column="B" property="b" jdbcType="VARCHAR" />
+		<result column="C" property="c" jdbcType="VARCHAR" />
+		<result column="D" property="d" jdbcType="VARCHAR" />
+		<result column="E" property="e" jdbcType="VARCHAR" />
+		<result column="F" property="f" jdbcType="VARCHAR" />
+		<result column="G" property="g" jdbcType="VARCHAR" />
+		<result column="H" property="h" jdbcType="VARCHAR" />
+		<result column="I" property="i" jdbcType="VARCHAR" />
+		<result column="J" property="j" jdbcType="VARCHAR" />
+		<result column="K" property="k" jdbcType="VARCHAR" />
+		<result column="L" property="l" jdbcType="VARCHAR" />
+		<result column="M" property="m" jdbcType="VARCHAR" />
+		<result column="N" property="n" jdbcType="VARCHAR" />
+		<result column="O" property="o" jdbcType="VARCHAR" />
+		<result column="P" property="p" jdbcType="VARCHAR" />
+		<result column="Q" property="q" jdbcType="VARCHAR" />
+		<result column="R" property="r" jdbcType="VARCHAR" />
+		<result column="S" property="s" jdbcType="VARCHAR" />
+		<result column="T" property="t" jdbcType="VARCHAR" />
+		<result column="U" property="u" jdbcType="VARCHAR" />
+		<result column="V" property="v" jdbcType="VARCHAR" />
+		<result column="W" property="w" jdbcType="VARCHAR" />
+		<result column="X" property="x" jdbcType="VARCHAR" />
+		<result column="Y" property="y" jdbcType="VARCHAR" />
+		<result column="Z" property="z" jdbcType="VARCHAR" />
+		<result column="AA" property="aa" jdbcType="VARCHAR" />
+		<result column="AB" property="ab" jdbcType="VARCHAR" />
+		<result column="AC" property="ac" jdbcType="VARCHAR" />
+		<result column="AD" property="ad" jdbcType="VARCHAR" />
+		<result column="CREATION_TIME" property="creationTime" jdbcType="TIMESTAMP" />
+		<result column="CREATION_USER_NO" property="creationUserNo" jdbcType="VARCHAR" />
+		<result column="BENCHMARK" property="benchmark" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="get" resultMap="BaseResultMap">
+		select `ID`,`FILE_NAME`,`A`,`B`,`C`,`D`,`E`,`F`,`G`,`H`,`I`,`J`,`K`,`L`,`M`,`N`,`O`,`P`,`Q`,`R`,`S`,`T`,`U`,`V`,`W`,`X`,`Y`,`Z`,`AA`,`AB`,`AC`,`AD`,`CREATION_TIME`,`CREATION_USER_NO`,`BENCHMARK` from tb_cust_generate_file where ID = #{value}
+	</select>
+
+	<select id="list" resultMap="BaseResultMap">
+		select `ID`,`FILE_NAME`,`A`,`B`,`C`,`D`,`E`,`F`,`G`,`H`,`I`,`J`,`K`,`L`,`M`,`N`,`O`,`P`,`Q`,`R`,`S`,`T`,`U`,`V`,`W`,`X`,`Y`,`Z`,`AA`,`AB`,`AC`,`AD`,`CREATION_TIME`,`CREATION_USER_NO`,`BENCHMARK` from tb_cust_generate_file
+        <where>  
+		  		  <if test="id != null and id != ''"> and ID = #{id} </if>
+		  		  <if test="fileName != null and fileName != ''"> and FILE_NAME = #{fileName} </if>
+		  		  <if test="a != null and a != ''"> and A = #{a} </if>
+		  		  <if test="b != null and b != ''"> and B = #{b} </if>
+		  		  <if test="c != null and c != ''"> and C = #{c} </if>
+		  		  <if test="d != null and d != ''"> and D = #{d} </if>
+		  		  <if test="e != null and e != ''"> and E = #{e} </if>
+		  		  <if test="f != null and f != ''"> and F = #{f} </if>
+		  		  <if test="g != null and g != ''"> and G = #{g} </if>
+		  		  <if test="h != null and h != ''"> and H = #{h} </if>
+		  		  <if test="i != null and i != ''"> and I = #{i} </if>
+		  		  <if test="j != null and j != ''"> and J = #{j} </if>
+		  		  <if test="k != null and k != ''"> and K = #{k} </if>
+		  		  <if test="l != null and l != ''"> and L = #{l} </if>
+		  		  <if test="m != null and m != ''"> and M = #{m} </if>
+		  		  <if test="n != null and n != ''"> and N = #{n} </if>
+		  		  <if test="o != null and o != ''"> and O = #{o} </if>
+		  		  <if test="p != null and p != ''"> and P = #{p} </if>
+		  		  <if test="q != null and q != ''"> and Q = #{q} </if>
+		  		  <if test="r != null and r != ''"> and R = #{r} </if>
+		  		  <if test="s != null and s != ''"> and S = #{s} </if>
+		  		  <if test="t != null and t != ''"> and T = #{t} </if>
+		  		  <if test="u != null and u != ''"> and U = #{u} </if>
+		  		  <if test="v != null and v != ''"> and V = #{v} </if>
+		  		  <if test="w != null and w != ''"> and W = #{w} </if>
+		  		  <if test="x != null and x != ''"> and X = #{x} </if>
+		  		  <if test="y != null and y != ''"> and Y = #{y} </if>
+		  		  <if test="z != null and z != ''"> and Z = #{z} </if>
+		  		  <if test="aa != null and aa != ''"> and AA = #{aa} </if>
+		  		  <if test="ab != null and ab != ''"> and AB = #{ab} </if>
+		  		  <if test="ac != null and ac != ''"> and AC = #{ac} </if>
+		  		  <if test="ad != null and ad != ''"> and AD = #{ad} </if>
+		  		  <if test="creationTime != null and creationTime != ''"> and CREATION_TIME = #{creationTime} </if>
+		  		  <if test="creationUserNo != null and creationUserNo != ''"> and CREATION_USER_NO = #{creationUserNo} </if>
+			      <if test="benchmark != null and benchmark != ''"> and BENCHMARK = #{benchmark} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from tb_cust_generate_file
+		 <where>  
+		  		  <if test="id != null and id != ''"> and ID = #{id} </if>
+		  		  <if test="fileName != null and fileName != ''"> and FILE_NAME = #{fileName} </if>
+		  		  <if test="a != null and a != ''"> and A = #{a} </if>
+		  		  <if test="b != null and b != ''"> and B = #{b} </if>
+		  		  <if test="c != null and c != ''"> and C = #{c} </if>
+		  		  <if test="d != null and d != ''"> and D = #{d} </if>
+		  		  <if test="e != null and e != ''"> and E = #{e} </if>
+		  		  <if test="f != null and f != ''"> and F = #{f} </if>
+		  		  <if test="g != null and g != ''"> and G = #{g} </if>
+		  		  <if test="h != null and h != ''"> and H = #{h} </if>
+		  		  <if test="i != null and i != ''"> and I = #{i} </if>
+		  		  <if test="j != null and j != ''"> and J = #{j} </if>
+		  		  <if test="k != null and k != ''"> and K = #{k} </if>
+		  		  <if test="l != null and l != ''"> and L = #{l} </if>
+		  		  <if test="m != null and m != ''"> and M = #{m} </if>
+		  		  <if test="n != null and n != ''"> and N = #{n} </if>
+		  		  <if test="o != null and o != ''"> and O = #{o} </if>
+		  		  <if test="p != null and p != ''"> and P = #{p} </if>
+		  		  <if test="q != null and q != ''"> and Q = #{q} </if>
+		  		  <if test="r != null and r != ''"> and R = #{r} </if>
+		  		  <if test="s != null and s != ''"> and S = #{s} </if>
+		  		  <if test="t != null and t != ''"> and T = #{t} </if>
+		  		  <if test="u != null and u != ''"> and U = #{u} </if>
+		  		  <if test="v != null and v != ''"> and V = #{v} </if>
+		  		  <if test="w != null and w != ''"> and W = #{w} </if>
+		  		  <if test="x != null and x != ''"> and X = #{x} </if>
+		  		  <if test="y != null and y != ''"> and Y = #{y} </if>
+		  		  <if test="z != null and z != ''"> and Z = #{z} </if>
+		  		  <if test="aa != null and aa != ''"> and AA = #{aa} </if>
+		  		  <if test="ab != null and ab != ''"> and AB = #{ab} </if>
+		  		  <if test="ac != null and ac != ''"> and AC = #{ac} </if>
+		  		  <if test="ad != null and ad != ''"> and AD = #{ad} </if>
+		  		  <if test="creationTime != null and creationTime != ''"> and CREATION_TIME = #{creationTime} </if>
+		  		  <if test="creationUserNo != null and creationUserNo != ''"> and CREATION_USER_NO = #{creationUserNo} </if>
+				  <if test="benchmark != null and benchmark != ''"> and BENCHMARK = #{benchmark} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.sf.domain.CustGenerateFileDO" useGeneratedKeys="true" keyProperty="id">
+		insert into tb_cust_generate_file
+		(
+			`FILE_NAME`, 
+			`A`, 
+			`B`, 
+			`C`, 
+			`D`, 
+			`E`, 
+			`F`, 
+			`G`, 
+			`H`, 
+			`I`, 
+			`J`, 
+			`K`, 
+			`L`, 
+			`M`, 
+			`N`, 
+			`O`, 
+			`P`, 
+			`Q`, 
+			`R`, 
+			`S`, 
+			`T`, 
+			`U`, 
+			`V`, 
+			`W`, 
+			`X`, 
+			`Y`, 
+			`Z`, 
+			`AA`, 
+			`AB`, 
+			`AC`, 
+			`AD`, 
+			`CREATION_TIME`, 
+			`CREATION_USER_NO`,
+			`BENCHMARK`
+		)
+		values
+		(
+			#{fileName}, 
+			#{a}, 
+			#{b}, 
+			#{c}, 
+			#{d}, 
+			#{e}, 
+			#{f}, 
+			#{g}, 
+			#{h}, 
+			#{i}, 
+			#{j}, 
+			#{k}, 
+			#{l}, 
+			#{m}, 
+			#{n}, 
+			#{o}, 
+			#{p}, 
+			#{q}, 
+			#{r}, 
+			#{s}, 
+			#{t}, 
+			#{u}, 
+			#{v}, 
+			#{w}, 
+			#{x}, 
+			#{y}, 
+			#{z}, 
+			#{aa}, 
+			#{ab}, 
+			#{ac}, 
+			#{ad}, 
+			#{creationTime}, 
+			#{creationUserNo},
+			#{benchmark}
+		)
+	</insert>
+
+	<!--批量插入-->
+	<insert id="batchInsert" parameterType="java.util.List">
+	insert into tb_cust_generate_file
+		(
+			`FILE_NAME`,
+			`A`,
+			`B`,
+			`C`,
+			`D`,
+			`E`,
+			`F`,
+			`G`,
+			`H`,
+			`I`,
+			`J`,
+			`K`,
+			`L`,
+			`M`,
+			`N`,
+			`O`,
+			`P`,
+			`Q`,
+			`R`,
+			`S`,
+			`T`,
+			`U`,
+			`V`,
+			`W`,
+			`X`,
+			`Y`,
+			`Z`,
+			`AA`,
+			`AB`,
+			`AC`,
+			`AD`,
+			`CREATION_TIME`,
+			`CREATION_USER_NO`,
+			`BENCHMARK`
+		)
+		values
+		<foreach collection="list" item="obj" index="index" separator=",">
+			(
+			#{obj.fileName},
+			#{obj.a},
+			#{obj.b},
+			#{obj.c},
+			#{obj.d},
+			#{obj.e},
+			#{obj.f},
+			#{obj.g},
+			#{obj.h},
+			#{obj.i},
+			#{obj.j},
+			#{obj.k},
+			#{obj.l},
+			#{obj.m},
+			#{obj.n},
+			#{obj.o},
+			#{obj.p},
+			#{obj.q},
+			#{obj.r},
+			#{obj.s},
+			#{obj.t},
+			#{obj.u},
+			#{obj.v},
+			#{obj.w},
+			#{obj.x},
+			#{obj.y},
+			#{obj.z},
+			#{obj.aa},
+			#{obj.ab},
+			#{obj.ac},
+			#{obj.ad},
+			#{obj.creationTime},
+			#{obj.creationUserNo},
+			#{obj.benchmark})
+		</foreach>
+	</insert>
+
+	<update id="update" parameterType="com.sf.domain.CustGenerateFileDO">
+		update tb_cust_generate_file 
+		<set>
+			<if test="fileName != null">`FILE_NAME` = #{fileName}, </if>
+			<if test="a != null">`A` = #{a}, </if>
+			<if test="b != null">`B` = #{b}, </if>
+			<if test="c != null">`C` = #{c}, </if>
+			<if test="d != null">`D` = #{d}, </if>
+			<if test="e != null">`E` = #{e}, </if>
+			<if test="f != null">`F` = #{f}, </if>
+			<if test="g != null">`G` = #{g}, </if>
+			<if test="h != null">`H` = #{h}, </if>
+			<if test="i != null">`I` = #{i}, </if>
+			<if test="j != null">`J` = #{j}, </if>
+			<if test="k != null">`K` = #{k}, </if>
+			<if test="l != null">`L` = #{l}, </if>
+			<if test="m != null">`M` = #{m}, </if>
+			<if test="n != null">`N` = #{n}, </if>
+			<if test="o != null">`O` = #{o}, </if>
+			<if test="p != null">`P` = #{p}, </if>
+			<if test="q != null">`Q` = #{q}, </if>
+			<if test="r != null">`R` = #{r}, </if>
+			<if test="s != null">`S` = #{s}, </if>
+			<if test="t != null">`T` = #{t}, </if>
+			<if test="u != null">`U` = #{u}, </if>
+			<if test="v != null">`V` = #{v}, </if>
+			<if test="w != null">`W` = #{w}, </if>
+			<if test="x != null">`X` = #{x}, </if>
+			<if test="y != null">`Y` = #{y}, </if>
+			<if test="z != null">`Z` = #{z}, </if>
+			<if test="aa != null">`AA` = #{aa}, </if>
+			<if test="ab != null">`AB` = #{ab}, </if>
+			<if test="ac != null">`AC` = #{ac}, </if>
+			<if test="ad != null">`AD` = #{ad}, </if>
+			<if test="creationTime != null">`CREATION_TIME` = #{creationTime}, </if>
+			<if test="creationUserNo != null">`CREATION_USER_NO` = #{creationUserNo},</if>
+			<if test="benchmark != null"> and BENCHMARK = #{benchmark} </if>
+		</set>
+		where ID = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from tb_cust_generate_file where ID = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from tb_cust_generate_file where ID in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

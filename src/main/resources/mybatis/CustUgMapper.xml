@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sf.dao.CustUgDao">
+
+	<resultMap id="BaseResultMap" type="com.sf.domain.CustUgDO" >
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="UID" property="uid" jdbcType="INTEGER" />
+		<result column="GID" property="gid" jdbcType="INTEGER" />
+		<result column="FLAG" property="flag" jdbcType="VARCHAR" />
+		<result column="BENCHMARK" property="benchmark" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="get" resultMap="BaseResultMap">
+		select `ID`,`UID`,`GID`,`FLAG`,`FLAG` from tb_cust_ug where ID = #{value}
+	</select>
+
+	<select id="list" resultMap="BaseResultMap">
+		select `ID`,`UID`,`GID`,`FLAG`,`BENCHMARK` from tb_cust_ug
+        <where>  
+			  <if test="id != null and id != ''"> and ID = #{id} </if>
+			  <if test="uid != null and uid != ''"> and UID = #{uid} </if>
+			  <if test="gid != null and gid != ''"> and GID = #{gid} </if>
+			  <if test="flag != null and flag != ''"> and FLAG = #{flag} </if>
+		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="queryMatchFile" resultType="com.sf.domain.CustMatchTable">
+		SELECT
+			B.FILE_NAME AS "sourceFileName",
+			C.FILE_NAME AS "targetFileName",
+			A.FLAG AS "flag"
+		FROM
+			tb_cust_ug A
+		LEFT JOIN tb_cust_upload_file_name B ON A.UID = B.ID
+		LEFT JOIN tb_cust_generate_file_name C ON A.GID = C.ID
+		<where>
+			<if test="flag!=null and flag!='' ">
+				and A.FLAG=#{flag}
+			</if>
+		</where>
+		GROUP BY
+			B.FILE_NAME,
+			C.FILE_NAME,
+			A.FLAG
+	</select>
+
+ 	<select id="count" resultType="int">
+		select count(*) from tb_cust_ug
+		 <where>  
+		  		  <if test="id != null and id != ''"> and ID = #{id} </if>
+		  		  <if test="uid != null and uid != ''"> and UID = #{uid} </if>
+		  		  <if test="gid != null and gid != ''"> and GID = #{gid} </if>
+		  		  <if test="flag != null and flag != ''"> and FLAG = #{flag} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.sf.domain.CustUgDO" useGeneratedKeys="true" keyProperty="id">
+		insert into tb_cust_ug
+		(
+			`UID`, 
+			`GID`, 
+			`FLAG`
+		)
+		values
+		(
+			#{uid}, 
+			#{gid}, 
+			#{flag}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.sf.domain.CustUgDO">
+		update tb_cust_ug 
+		<set>
+			<if test="uid != null">`UID` = #{uid}, </if>
+			<if test="gid != null">`GID` = #{gid}, </if>
+			<if test="flag != null">`FLAG` = #{flag}</if>
+		</set>
+		where ID = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from tb_cust_ug where ID = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from tb_cust_ug where ID in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>
