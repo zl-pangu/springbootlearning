@@ -38,7 +38,7 @@ CREATE TABLE `tf_sys_job` (
 /*Data for the table `tf_sys_job` */
 
 insert  into `tf_sys_job`(`JOB_ID`,`JOB_NAME`,`JOB_TYPE`,`JOB_CLASS`,`JOB_PARAMS`,`ALARM_TYPE`,`ALARM_RECEIVER`,`USE_TAG`,`EXEC_TIME`,`REMARK`,`CREATE_TIME`,`CREATE_BY`,`UPDATE_TIME`,`UPDATE_BY`,`SERVER_NODE`) values 
-('20001','一个单次执行的任务',1,'com.sf.quickstart.task.DemoTask','com.sf.quickstart.task.DemoTask',1,'lijiezhong@sf-express.com',1,20170809064138,NULL,NULL,NULL,NULL,NULL,'quickstart-demo');
+('20001','一个单次执行的任务',1,'DemoTask','DemoTask',1,'lijiezhong@sf-express.com',1,20170809064138,NULL,NULL,NULL,NULL,NULL,'quickstart-demo');
 
 /*Table structure for table `tf_sys_timer` */
 
@@ -78,7 +78,7 @@ CREATE TABLE `tf_sys_timer` (
 /*Data for the table `tf_sys_timer` */
 
 insert  into `tf_sys_timer`(`JOB_ID`,`JOB_NAME`,`JOB_TYPE`,`JOB_CLASS`,`JOB_PARAMS`,`CRON_EXPRESSION`,`TMP_VARIABLE`,`EXPIRED_TAG`,`ALARM_TYPE`,`ALARM_RECEIVER`,`USE_TAG`,`START_TIME`,`END_TIME`,`REMARK`,`LAST_EXEC_TIME`,`LAST_FINISH_TIME`,`NEXT_EXEC_TIME`,`EXCEPTION_TAG`,`EXCEPTION_INFO`,`RESULT_CODE`,`RESULT_INFO`,`CREATE_TIME`,`CREATE_BY`,`UPDATE_TIME`,`UPDATE_BY`,`SERVER_NODE`,`EXECUTING`) values 
-('10001','一个周期性执行的任务',1,'com.sf.quickstart.task.DemoTask','{\"userName\":\"顺丰科技\",\"age\":\"20\"}','0 0/1 * * * ?',NULL,0,1,'lijiezhong@sf-express.com',1,20170809064138,20501231235959,NULL,'20180625165600','20180625165600','20180625165700',0,'','0','任务执行成功','2017-08-09 18:42:11','','2017-08-22 18:59:18','','quickstart-demo',2);
+('10001','一个周期性执行的任务',1,'DemoTask','{\"userName\":\"顺丰科技\",\"age\":\"20\"}','0 0/1 * * * ?',NULL,0,1,'lijiezhong@sf-express.com',1,20170809064138,20501231235959,NULL,'20180625165600','20180625165600','20180625165700',0,'','0','任务执行成功','2017-08-09 18:42:11','','2017-08-22 18:59:18','','quickstart-demo',2);
 
 /*Table structure for table `tl_sys_job` */
 
