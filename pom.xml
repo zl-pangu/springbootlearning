@@ -180,28 +180,19 @@
 
     <repositories>
         <repository>
-            <id>local-nexus</id>
-            <url>http://10.29.7.160:9003/repository/maven-public/</url>
+            <id>maven-ali</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
             <snapshots>
                 <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </repository>
     </repositories>
     <pluginRepositories>
-        <pluginRepository>
-            <id>local-nexus</id>
-            <url>http://10.29.7.160:9003/repository/maven-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-
         <pluginRepository>
             <id>public</id>
             <name>aliyun nexus</name>
