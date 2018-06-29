@@ -38,7 +38,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.thread" level="${log.level}"/>
+    <logger name="com.zl" level="${log.level}"/>
     <logger name="net" level="ERROR"/>
     <logger name="org.springframework" level="ERROR"/>
     <logger name="com.alibaba" level="INFO"/>

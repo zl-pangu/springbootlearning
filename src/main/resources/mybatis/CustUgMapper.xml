@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.thread.dao.CustUgDao">
+<mapper namespace="com.zl.dao.CustUgDao">
 
-	<resultMap id="BaseResultMap" type="com.thread.domain.CustUgDO" >
+	<resultMap id="BaseResultMap" type="com.zl.domain.CustUgDO" >
 		<id column="ID" property="id" jdbcType="INTEGER" />
 		<result column="UID" property="uid" jdbcType="INTEGER" />
 		<result column="GID" property="gid" jdbcType="INTEGER" />
@@ -36,7 +36,7 @@
 		</if>
 	</select>
 
-	<select id="queryMatchFile" resultType="com.thread.domain.CustMatchTable">
+	<select id="queryMatchFile" resultType="com.zl.domain.CustMatchTable">
 		SELECT
 			B.FILE_NAME AS "sourceFileName",
 			C.FILE_NAME AS "targetFileName",
@@ -66,7 +66,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.thread.domain.CustUgDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.zl.domain.CustUgDO" useGeneratedKeys="true" keyProperty="id">
 		insert into tb_cust_ug
 		(
 			`UID`, 
@@ -81,7 +81,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.thread.domain.CustUgDO">
+	<update id="update" parameterType="com.zl.domain.CustUgDO">
 		update tb_cust_ug 
 		<set>
 			<if test="uid != null">`UID` = #{uid}, </if>

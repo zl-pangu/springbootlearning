@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.thread.dao.CustGenerateFileDao">
+<mapper namespace="com.zl.dao.CustGenerateFileDao">
 
-	<resultMap id="BaseResultMap" type="com.thread.domain.CustGenerateFileDO" >
+	<resultMap id="BaseResultMap" type="com.zl.domain.CustGenerateFileDO" >
 		<id column="ID" property="id" jdbcType="INTEGER" />
 		<result column="FILE_NAME" property="fileName" jdbcType="VARCHAR" />
 		<result column="A" property="a" jdbcType="VARCHAR" />
@@ -138,7 +138,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.thread.domain.CustGenerateFileDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.zl.domain.CustGenerateFileDO" useGeneratedKeys="true" keyProperty="id">
 		insert into tb_cust_generate_file
 		(
 			`FILE_NAME`, 
@@ -294,7 +294,7 @@
 		</foreach>
 	</insert>
 
-	<update id="update" parameterType="com.thread.domain.CustGenerateFileDO">
+	<update id="update" parameterType="com.zl.domain.CustGenerateFileDO">
 		update tb_cust_generate_file 
 		<set>
 			<if test="fileName != null">`FILE_NAME` = #{fileName}, </if>

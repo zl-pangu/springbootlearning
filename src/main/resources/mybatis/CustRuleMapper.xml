@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.thread.dao.CustRuleDao">
+<mapper namespace="com.zl.dao.CustRuleDao">
 
-	<resultMap id="BaseResultMap" type="com.thread.domain.CustRuleDO" >
+	<resultMap id="BaseResultMap" type="com.zl.domain.CustRuleDO" >
 		<id column="ID" property="id" jdbcType="INTEGER" />
 		<result column="TARGET_COLUMN" property="targetColumn" jdbcType="VARCHAR" />
 		<result column="TABLE_A" property="tableA" jdbcType="VARCHAR" />
@@ -78,7 +78,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.thread.domain.CustRuleDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.zl.domain.CustRuleDO" useGeneratedKeys="true" keyProperty="id">
 		insert into tb_cust_rule
 		(
 			`TARGET_COLUMN`, 
@@ -115,7 +115,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.thread.domain.CustRuleDO">
+	<update id="update" parameterType="com.zl.domain.CustRuleDO">
 		update tb_cust_rule 
 		<set><if test="defaultValue != null and defaultValue != ''"> and DEFAULT_VALUE = #{defaultValue} </if>
 			<if test="targetColumn != null">`TARGET_COLUMN` = #{targetColumn}, </if>
