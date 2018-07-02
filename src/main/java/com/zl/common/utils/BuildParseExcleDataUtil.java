@@ -1,10 +1,10 @@
 package com.zl.common.utils;
 
 import com.zl.config.Constant;
-import com.zl.domain.CustBchmakDO;
-import com.zl.domain.CustGenerateFileDO;
-import com.zl.domain.CustRuleDO;
-import com.zl.domain.CustUploadingFilesDO;
+import com.zl.thread.domain.CustBchmakDO;
+import com.zl.thread.domain.CustGenerateFileDO;
+import com.zl.thread.domain.CustRuleDO;
+import com.zl.thread.domain.CustUploadingFilesDO;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;

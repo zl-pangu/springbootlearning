@@ -1,6 +1,6 @@
-package com.zl.dao;
+package com.zl.thread.dao;
 
-import com.zl.domain.CustGenerateFileDO;
+import com.zl.thread.domain.CustGenerateFileDO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

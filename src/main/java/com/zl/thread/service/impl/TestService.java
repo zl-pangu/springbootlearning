@@ -1,4 +1,4 @@
-package com.zl.service.impl;
+package com.zl.thread.service.impl;
 
 
 import org.springframework.stereotype.Service;

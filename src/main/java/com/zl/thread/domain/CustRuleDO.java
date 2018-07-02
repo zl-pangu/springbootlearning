@@ -1,4 +1,4 @@
-package com.zl.domain;
+package com.zl.thread.domain;
 
 import java.io.Serializable;
 

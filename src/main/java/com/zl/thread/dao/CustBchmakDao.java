@@ -1,6 +1,6 @@
-package com.zl.dao;
+package com.zl.thread.dao;
 
-import com.zl.domain.CustBchmakDO;
+import com.zl.thread.domain.CustBchmakDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

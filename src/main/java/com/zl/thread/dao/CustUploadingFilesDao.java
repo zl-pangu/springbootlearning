@@ -1,6 +1,6 @@
-package com.zl.dao;
+package com.zl.thread.dao;
 
-import com.zl.domain.CustUploadingFilesDO;
+import com.zl.thread.domain.CustUploadingFilesDO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

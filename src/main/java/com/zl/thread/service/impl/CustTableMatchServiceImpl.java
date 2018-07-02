@@ -1,11 +1,11 @@
-package com.zl.service.impl;
+package com.zl.thread.service.impl;
 
 import com.zl.common.utils.BuildParseExcleDataUtil;
 import com.zl.common.utils.ReflectClass;
-import com.zl.dao.*;
-import com.zl.domain.*;
-import com.zl.dto.CustTableMatchDto;
-import com.zl.service.CustTableMatchService;
+import com.zl.thread.dao.*;
+import com.zl.thread.domain.*;
+import com.zl.thread.dto.CustTableMatchDto;
+import com.zl.thread.service.CustTableMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

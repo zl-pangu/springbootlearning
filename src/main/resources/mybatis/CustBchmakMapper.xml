@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zl.dao.CustBchmakDao">
+<mapper namespace="com.zl.thread.dao.CustBchmakDao">
 
-	<resultMap id="CustBchmakRusltMap" type="com.zl.domain.CustBchmakDO">
+	<resultMap id="CustBchmakRusltMap" type="com.zl.thread.domain.CustBchmakDO">
 		<id column="ID" property="id" jdbcType="BIGINT"/>
 		<result column="FLAG" property="flag" jdbcType="VARCHAR"/>
 		<result column="TEMPLATE_TABLE" property="templateTable" jdbcType="VARCHAR"/>
@@ -19,7 +19,7 @@
 		select `ID`,`FLAG`,`TEMPLATE_TABLE`,`BENCHMARK_CLO` from tb_cust_bchmak where FLAG = #{flag}
 	</select>
 
-	<select id="list" resultType="com.zl.domain.CustBchmakDO">
+	<select id="list" resultType="com.zl.thread.domain.CustBchmakDO">
 		select `ID`,`FLAG`,`TEMPLATE_TABLE`,`BENCHMARK_CLO` from tb_cust_bchmak
         <where>  
 		  		  <if test="id != null and id != ''"> and ID = #{id} </if>
@@ -50,7 +50,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.zl.domain.CustBchmakDO">
+	<insert id="save" parameterType="com.zl.thread.domain.CustBchmakDO">
 		insert into tb_cust_bchmak
 		(
 			`ID`, 
@@ -67,7 +67,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="com.zl.domain.CustBchmakDO">
+	<update id="update" parameterType="com.zl.thread.domain.CustBchmakDO">
 		update tb_cust_bchmak 
 		<set>
 			<if test="flag != null">`FLAG` = #{flag}, </if>

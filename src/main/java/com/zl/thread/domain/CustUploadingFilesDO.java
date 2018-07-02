@@ -1,4 +1,4 @@
-package com.zl.domain;
+package com.zl.thread.domain;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,9 +9,9 @@ import java.util.Date;
  * 
  * @author chglee
  * @email 1992lcg@163.com
- * @date 2018-06-20 11:55:28
+ * @date 2018-06-20 11:55:29
  */
-public class CustGenerateFileDO implements Serializable {
+public class CustUploadingFilesDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//
@@ -81,14 +81,8 @@ public class CustGenerateFileDO implements Serializable {
 	//
 	private Date creationTime;
 	//
-	private String creationUserNo;
+	private Integer creationUserNo;
 
-	//
-	private  String benchmark;
-
-	public void setBenchmark(String benchmark) { this.benchmark = benchmark; }
-
-	public String getBenchmark() { return benchmark; }
 	/**
 	 * 设置：
 	 */
@@ -485,12 +479,16 @@ public class CustGenerateFileDO implements Serializable {
 	public Date getCreationTime() {
 		return creationTime;
 	}
-
-	public String getCreationUserNo() {
-		return creationUserNo;
-	}
-
-	public void setCreationUserNo(String creationUserNo) {
+	/**
+	 * 设置：
+	 */
+	public void setCreationUserNo(Integer creationUserNo) {
 		this.creationUserNo = creationUserNo;
+	}
+	/**
+	 * 获取：
+	 */
+	public Integer getCreationUserNo() {
+		return creationUserNo;
 	}
 }

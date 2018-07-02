@@ -1,4 +1,4 @@
-package com.zl.dto;
+package com.zl.thread.dto;
 
 import lombok.Data;
 

@@ -1,7 +1,7 @@
-package com.zl.controller;
+package com.zl.thread.controller;
 
-import com.zl.dto.CustTableMatchDto;
-import com.zl.service.CustTableMatchService;
+import com.zl.thread.dto.CustTableMatchDto;
+import com.zl.thread.service.CustTableMatchService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

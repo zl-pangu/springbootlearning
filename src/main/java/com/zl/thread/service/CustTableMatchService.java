@@ -1,6 +1,6 @@
-package com.zl.service;
+package com.zl.thread.service;
 
-import com.zl.dto.CustTableMatchDto;
+import com.zl.thread.dto.CustTableMatchDto;
 
 /**
  * @Author: zhouliang

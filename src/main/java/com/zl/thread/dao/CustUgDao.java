@@ -1,7 +1,7 @@
-package com.zl.dao;
+package com.zl.thread.dao;
 
-import com.zl.domain.CustMatchTable;
-import com.zl.domain.CustUgDO;
+import com.zl.thread.domain.CustMatchTable;
+import com.zl.thread.domain.CustUgDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
