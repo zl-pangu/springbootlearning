@@ -43,5 +43,10 @@ redis:
 log:
   level: info
   path: D:/workspace/boot-thread/src/main/resources/logs
+elasticsearch:
+  host: 127.0.0.1
+  port: 9300
+  cluster-name: elastic
+  pool: 5
 
 

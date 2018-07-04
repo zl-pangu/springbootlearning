@@ -44,5 +44,10 @@ redis:
 log:
   level: info
   path: /app/data/logs/boot-learning
-
+#es\u914D\u7F6E
+elasticsearch:
+  host: 127.0.0.1
+  port: 9300
+  cluster-name: elastic
+  pool: 5
 
