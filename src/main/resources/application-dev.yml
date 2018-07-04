@@ -1,0 +1,48 @@
+#\u9879\u76EE\u7AEF\u53E3\u53F7
+server:
+  port: 20401
+spring:
+#\u6570\u636E\u6E90\u914D\u7F6E
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bootdo?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 123456
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,slf4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+#\u6A21\u677F\u5F15\u64CE\u914D\u7F6E
+  thymeleaf:
+    prefix: /templates
+    suffix: .html
+    cache: false
+    enabled: false
+    encoding: UTF-8
+    mode: HTML5
+#redis\u5355\u8282\u70B9\u914D\u7F6E
+redis:
+  host: 127.0.0.1
+  port: 6379
+  pool-max-idle: 500
+  pool-max-wait: 500
+  pool-max-total: 1000
+  password: 123456
+  timeout: 10000
+#\u65E5\u5FD7\u7EA7\u522B\u548C\u8DEF\u5F84
+log:
+  level: info
+  path: /app/data/logs/boot-learning
+
+

@@ -1,0 +1,47 @@
+#项目端口号
+server:
+  port: 8080
+spring:
+#数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bootdo?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 123456
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,slf4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+#模板引擎配置
+  thymeleaf:
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    mode: HTML5
+#redis单节点配置
+redis:
+  host: 127.0.0.1
+  port: 6379
+  pool-max-idle: 500
+  pool-max-wait: 500
+  pool-max-total: 1000
+  password:
+  timeout: 10000
+#日志级别和路径
+log:
+  level: info
+  path: D:/workspace/boot-thread/src/main/resources/logs
+
+
