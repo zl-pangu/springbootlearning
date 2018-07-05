@@ -29,7 +29,7 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     cache: false
-    mode: HTML5
+    mode: HTML
 #redis单节点配置
 redis:
   host: 127.0.0.1
@@ -46,7 +46,7 @@ log:
 elasticsearch:
   host: 127.0.0.1
   port: 9300
-  cluster-name: elastic
+  cluster-name: elasticsearch
   pool: 5
 
 

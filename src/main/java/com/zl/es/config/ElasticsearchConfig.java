@@ -6,6 +6,7 @@ import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.net.InetAddress;
@@ -29,6 +30,7 @@ public class ElasticsearchConfig {
     @Value("${elasticsearch.pool}")
     private String poolSize;
 
+    @Bean(name = "transportClient")
     public TransportClient transportClient(){
         log.info("es 初始化开始....");
         TransportClient transportClient = null;
