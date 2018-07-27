@@ -8,7 +8,6 @@ import com.zl.thread.domain.CustUploadingFilesDO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -68,12 +67,12 @@ public class TestController {
         return R.ok(msg);
     }
 
-    @RequestMapping("bspRoutePush")
+    @RequestMapping("/bspRoutePush")
     @ResponseBody
     public String bspRoutePush(String content) throws UnsupportedEncodingException {
         String xml=URLDecoder.decode(content,"UTF-8");
         log.info("传入xml:{},content:{}",xml,content);
-        return "<Response service=”RoutePushService”>\n" +
+        return "<Response service='RoutePushService'>\n" +
                 "\n" +
                 "<Head>OK</Head>\n" +
                 "\n" +
