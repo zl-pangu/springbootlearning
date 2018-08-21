@@ -16,7 +16,6 @@
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>5.0.5.RELEASE</spring.version>
-        <lombok.version>1.16.18</lombok.version>
         <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
         <lombok.version>1.16.18</lombok.version>
         <logstash-logback-encoder.version>5.0</logstash-logback-encoder.version>

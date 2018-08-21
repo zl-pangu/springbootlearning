@@ -87,7 +87,7 @@ public class RedisService {
         String result = null;
         Jedis jedis = null;
         try {
-            jedis = jedisPool.getResource();;
+            jedis = jedisPool.getResource();
             result = jedis.set(key, value);
             if (cacheSeconds != 0) {
                 jedis.expire(key, cacheSeconds);
