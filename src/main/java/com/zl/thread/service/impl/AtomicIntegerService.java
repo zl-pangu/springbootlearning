@@ -19,21 +19,31 @@ public class AtomicIntegerService {
     public static  final AtomicInteger atomicInteger=new AtomicInteger(0);
 
     public static void main(String[] args) throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+
         atomicIntegerTest();
 
-        Thread.sleep(3000);
-        System.err.println("最终结果是===============================>"+atomicInteger.get());
+        long endTime= System.currentTimeMillis();
+        System.err.println("耗时："+((endTime-startTime))+"ms,最终结果是===============================>"+atomicInteger.get());
     }
 
-    private static void atomicIntegerTest(){
+    private static void atomicIntegerTest() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(10000);
+
+        CountDownLatch latch=new CountDownLatch(40000);
         for (int i = 0; i < 10000; i++) {
             executorService.execute(()->{
-                for (int j = 0; j < 4; j++) {
-                    System.out.println(atomicInteger.getAndIncrement());
-                }
+                    for (int j = 0; j < 4; j++) {
+                        try {
+                            System.out.println(atomicInteger.getAndIncrement());
+                        } finally {
+                            latch.countDown();
+                        }
+                    }
             });
         }
+        //等待所有线程完成
+        latch.await();
         executorService.shutdown();
     }
 
