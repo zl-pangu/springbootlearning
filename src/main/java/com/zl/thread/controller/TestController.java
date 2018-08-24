@@ -79,4 +79,14 @@ public class TestController {
                 "</Response>";
     }
 
+    @RequestMapping("/pushOrderState")
+    @ResponseBody
+    public String pushOrderState(String content) throws UnsupportedEncodingException {
+        String xml=URLDecoder.decode(content,"UTF-8");
+        log.info("订单状态回调========》传入xml:{},content:{}",xml,content);
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" +
+                "<Response>\n" +
+                "<success>true</success>\n" +
+                "</Response>";
+    }
 }

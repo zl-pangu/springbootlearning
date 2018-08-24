@@ -15,7 +15,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 public class CountDownLatchService {
     /**
-     * CountDownLatch 在主线程里面操作其他子线程等待的类
+     * CountDownLatch 同步辅助类
+     *
+     * 在主线程里面操作其他子线程等待的类
      *
      * 可以控制子线程什么时候执行，什么时候阻塞等待
      * @param args
